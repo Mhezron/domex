@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,61 +11,61 @@ const Navbar = () => {
           <div className="flex items-center">
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="text-xl font-bold text-gray-800">
+              <Link to="/" className="text-xl font-bold text-gray-800">
                 Domex
-              </a>
+              </Link>
             </div>
             {/* Links */}
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                <a
-                  href="/"
+                <Link
+                  to="/news"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   News
-                </a>
-                <a
-                  href="/about"
+                </Link>
+                <Link
+                  to="/about"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Analysis
-                </a>
-                <a
-                  href="/services"
+                </Link>
+                <Link
+                  to="/services"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Services
-                </a>
-                <a
-                  href="/pricing"
+                </Link>
+                <Link
+                  to="/pricing"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Pricing
-                </a>
-                <a
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/forex"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Learn Forex
-                </a>
-                <a
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/tools"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Tools
-                </a>
-                <a
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/about"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   About
-                </a>
-                <a
-                  href="/contact"
+                </Link>
+                <Link
+                  to="/contact"
                   className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
                 >
                   Contacts
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -103,54 +104,54 @@ const Navbar = () => {
       {/* Mobile Menu */}
       <div className={`md:hidden ${isOpen ? "block" : "hidden"}`}>
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a
-            href="/"
+          <Link
+            to="/news"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             News
-          </a>
-          <a
-            href="/about"
+          </Link>
+          <Link
+            to="/about"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Analysis
-          </a>
-          <a
-            href="/services"
+          </Link>
+          <Link
+            to="/services"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Services
-          </a>
-          <a
-            href="/pricing"
+          </Link>
+          <Link
+            to="/pricing"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Pricing
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/forex"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Learn Forex
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/tools"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Tools
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/about"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             About
-          </a>
-          <a
-            href="/contact"
+          </Link>
+          <Link
+            to="/contact"
             className="text-gray-800 hover:text-blue-600 block px-3 py-2 rounded-md text-base font-medium"
           >
             Contacts
-          </a>
+          </Link>
         </div>
       </div>
     </nav>
