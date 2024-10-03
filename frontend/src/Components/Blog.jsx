@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 
 // Static data for careers
 const careerOptions = [
@@ -24,7 +24,7 @@ const CareerCard = ({ career }) => (
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <path d="M12 14l9-5-9-5-9 5 9 5z"></path>
+        <path d="M12 14l9-5-9-5-9 5z"></path>
         <path
           strokeLinecap="round"
           strokeLinejoin="round"
@@ -40,8 +40,96 @@ const CareerCard = ({ career }) => (
   </a>
 );
 
+// Modal component for Newsletter Signup
+const NewsletterModal = ({ isOpen, onClose }) => {
+  const [formData, setFormData] = useState({ name: '', email: '' });
+  const [error, setError] = useState('');
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!formData.name || !formData.email) {
+      setError('Please fill in all fields.');
+      return;
+    }
+
+    setError('');
+    console.log('Form submitted:', formData);
+
+    // Close the modal after submission
+    onClose();
+  };
+
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black bg-opacity-50 flex justify-center items-center">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-lg relative">
+        <h2 className="text-2xl font-bold mb-4">Sign Up for Our Newsletter</h2>
+
+        <form onSubmit={handleSubmit}>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium mb-2" htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleInputChange}
+              className="w-full border px-3 py-2 rounded-md focus:outline-none focus:border-indigo-500"
+              placeholder="Enter your name"
+            />
+          </div>
+          <div className="mb-4">
+            <label className="block text-gray-700 font-medium mb-2" htmlFor="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
+              className="w-full border px-3 py-2 rounded-md focus:outline-none focus:border-indigo-500"
+              placeholder="Enter your email"
+            />
+          </div>
+
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+
+          <button
+            type="submit"
+            className="w-full bg-indigo-600 text-white py-2 rounded-md hover:bg-indigo-700 transition"
+          >
+            Subscribe
+          </button>
+        </form>
+
+        {/* Close button */}
+        <button
+          onClick={onClose}
+          className="absolute top-3 right-3 text-gray-400 hover:text-gray-600"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={2}
+            stroke="currentColor"
+            className="w-6 h-6"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </div>
+  );
+};
+
 // Main Blog component
 const Blog = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="bg-gray-50 min-h-screen">
       <section className="pt-12 pb-4">
@@ -54,12 +142,12 @@ const Blog = () => {
                 Discover exciting career opportunities that match your interests and skills. Whether you're starting
                 fresh or looking to switch paths, we've got the resources to guide you.
               </p>
-              <a
-                href="/"
+              <button
+                onClick={() => setIsModalOpen(true)}
                 className="mt-8 inline-block rounded bg-blue-500 px-12 py-3 text-sm font-medium text-white transition hover:bg-blue-600 focus:outline-none focus:ring focus:ring-yellow-400"
               >
                 Get Started Today
-              </a>
+              </button>
             </div>
 
             {/* Grid of Career Options */}
@@ -71,6 +159,9 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+      {/* Modal Component */}
+      <NewsletterModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
     </div>
   );
 };

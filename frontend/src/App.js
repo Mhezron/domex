@@ -7,6 +7,8 @@ import Footer from './Components/Footer';
 import Navbar from './Components/Navabar';
 import Team from './Components/Team';
 import ArticlePage from './Pages/ArticlePage'; 
+import ForexRates from './Components/ForexRates';
+import CurrencyConverter from './Components/CurrencyConverter';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/tools" element={<ToolsPage />} /> */}
         </Routes>
         <Banner />
+        <ForexRates />
+        <CurrencyConverter />
         <BlogGrid />
         <Team />
         <Blog />
