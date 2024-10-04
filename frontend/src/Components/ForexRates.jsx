@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
-const API_KEY = '80d163bd3c2946649ee9c877a44dd848';  // Replace with your actual API key
-
+const keys = process.env.REACT_APP_API_KEY;
 const flagUrl = (countryCode) => `https://flagcdn.com/16x12/${countryCode.toLowerCase()}.png`; 
 
 const ForexRates = () => {
@@ -14,7 +13,7 @@ const ForexRates = () => {
     const fetchRates = async () => {
       try {
         const response = await fetch(
-          `https://openexchangerates.org/api/latest.json?app_id=${API_KEY}`
+          `https://openexchangerates.org/api/latest.json?app_id=${keys}`
         );
         const data = await response.json();
         setRates(data.rates); // Set rates if the data fetch is successful

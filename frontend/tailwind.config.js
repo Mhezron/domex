@@ -11,6 +11,9 @@ module.exports = {
           '100%': { transform: 'translateX(-100%)' },
         },
       },
+      colors: {
+        hoverLight: 'rgba(255, 255, 255, 0.1)', // Slight whitish color for hover effect
+      },
     },
   },
   plugins: [],

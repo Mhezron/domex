@@ -3,7 +3,8 @@ import React, { useState, useEffect } from 'react';
 // Helper function to fetch the flag image URL
 const flagUrl = (countryCode) => `https://flagcdn.com/16x12/${countryCode.toLowerCase()}.png`;
 
-const API_KEY = '80d163bd3c2946649ee9c877a44dd848'; // Replace with your API key
+
+const keys = process.env.REACT_APP_API_KEY;
 
 const CurrencyConverter = () => {
     const [rates, setRates] = useState(null);
@@ -19,7 +20,7 @@ const CurrencyConverter = () => {
       const fetchRates = async () => {
         try {
           const response = await fetch(
-            `https://openexchangerates.org/api/latest.json?app_id=${API_KEY}`
+            `https://openexchangerates.org/api/latest.json?app_id=${keys}`
           );
           const data = await response.json();
           setRates(data.rates);

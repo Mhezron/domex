@@ -5,72 +5,70 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-lg">
+    <nav className="sticky top-0 z-50 bg-white shadow-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-16">
-          <div className="flex items-center">
-            {/* Logo */}
-            <div className="flex-shrink-0">
-              <Link to="/" className="text-xl font-bold text-gray-800">
-                Domex
-              </Link>
-            </div>
-            {/* Links */}
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                <Link
-                  to="/news"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  News
-                </Link>
-                <Link
-                  to="/about"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Analysis
-                </Link>
-                <Link
-                  to="/services"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Services
-                </Link>
-                <Link
-                  to="/pricing"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Pricing
-                </Link>
-                <Link
-                  to="/forex"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Learn Forex
-                </Link>
-                <Link
-                  to="/tools"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Tools
-                </Link>
-                <Link
-                  to="/about"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  About
-                </Link>
-                <Link
-                  to="/contact"
-                  className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-sm font-medium"
-                >
-                  Contacts
-                </Link>
-              </div>
-            </div>
+        <div className="flex justify-between items-center h-16">
+          {/* Logo */}
+          <div className="flex-shrink-0">
+            <Link to="/" className="text-xl font-bold text-gray-800">
+              Domex
+            </Link>
           </div>
+
+          {/* Links for larger screens */}
+          <div className="hidden md:flex ml-auto space-x-4">
+            <Link
+              to="/news"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              News
+            </Link>
+            <Link
+              to="/about"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              Analysis
+            </Link>
+            <Link
+              to="/services"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              Services
+            </Link>
+            <Link
+              to="/pricing"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              Pricing
+            </Link>
+            <Link
+              to="/forex"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              Learn Forex
+            </Link>
+            <Link
+              to="/tools"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              Tools
+            </Link>
+            <Link
+              to="/about"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              About
+            </Link>
+            <Link
+              to="/contact"
+              className="text-gray-800 hover:text-blue-600 px-3 py-2 rounded-md text-l font-medium"
+            >
+              Contacts
+            </Link>
+          </div>
+
           {/* Mobile Menu Button */}
-          <div className="-mr-2 flex md:hidden">
+          <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 focus:text-white"

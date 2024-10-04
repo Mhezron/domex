@@ -15,6 +15,8 @@ function App() {
     <Router>
       <div className="App">
         <Navbar />
+        <ForexRates />
+
         <Routes>
           <Route path="/news" element={<ArticlePage />} />
           {/* <Route path="/about" element={<AboutPage />} />
@@ -24,9 +26,8 @@ function App() {
           <Route path="/forex" element={<ForexPage />} />
           <Route path="/tools" element={<ToolsPage />} /> */}
         </Routes>
-        <Banner />
-        <ForexRates />
-        <CurrencyConverter />
+        {/* <Banner /> */}
+        {/* <CurrencyConverter /> */}
         <BlogGrid />
         <Team />
         <Blog />
